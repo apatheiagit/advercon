@@ -1,10 +1,12 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans|Roboto&amp;subset=cyrillic');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400|Roboto:300,400&amp;subset=cyrillic');
 @basic-font: 16px;
 @font-family: 'Open Sans', sans-serif;
 @special-font: 'Roboto', serif;
 @text-color: #111111;
-@grey-fon: #f3f3f3;
+@gray-fon: #f3f3f3;
+@gray-text: #666;
 @link: #0aaf5f;
+@blue: #23559d;
 @notebook: ~"(max-height: 800px)";
 @mobile: ~"(max-width: 767px)";
 @tablet: ~"(min-width: 768px) and (max-width: 992px)";
@@ -12,8 +14,139 @@
 @mobile_tablet: ~"(max-width: 992px)";
 @small_tablet: ~"(min-width: 451px) and (max-width: 767px)";
 @smartphone: ~"(max-width: 450px)";
+@somit-height: 920px;
 
-body { background: @grey-fon; font-family: @font-family; font-size: @basic-font; font-weight: 400; color: @text-color;}
+body { background: @gray-fon; font-family: @font-family; font-size: @basic-font; font-weight: 400; color: @text-color;}
 h1,h2,h3,h4,h6,h6,p,ul,li {margin: 0; padding:0px; }
 a, a:hover { color: inherit;}
 a:focus {  color: inherit; text-decoration: none;}
+
+.somit{
+	background-size: cover;
+	height: @somit-height;
+	padding: 95px 0;
+}
+.somit-main{
+	background: url(../img/bg-main.png) top center no-repeat #131414;
+	& .container{
+		position: relative;
+		height: 100%;
+	}
+	& .lang-block{
+		font-size: 14px;
+		color: @gray-text;
+		position: absolute;
+		top: 0px;
+		left: 20px;
+		@media @smartphone{
+			top: 20px;
+			left: 50%;
+			margin-left: -31px;
+		}
+		& .current{
+			color: @blue;
+		}
+		& a{
+			text-decoration: none;
+		}
+	}
+	& .logo-block{
+		text-align: center;
+		margin: 0 auto 70px;
+	}
+	& .slogan-block{
+		text-align: center;
+		& h1{
+			color: white;
+			font-size: 50px;
+			font-family: @special-font;
+			font-weight: 300;
+			text-transform: uppercase;
+			@media @smartphone{
+				font-size: 40px;
+				margin: 0 10px;
+			}
+		}		
+	}
+	& .mouse-block {
+    position: absolute;
+    bottom: 30%;
+    left: 50%;
+    width: 19px;
+    margin-left: -10px;
+    text-align: center;
+    & .mouse {
+	    background: url(../img/mouse.png) no-repeat;
+	    height: 33px;
+	    width: 19px;
+		}
+		& .mouse-arrow {
+	    background: url(../img/mouse_hvost.png) no-repeat center;
+	    height: 6px;
+	    margin: 8px auto 3px;
+	    width: 11px;
+	    -webkit-animation: scroll-arrow 1s infinite;
+	    animation: scroll-arrow 1s infinite;
+		}
+	}
+}
+@-webkit-keyframes scroll-arrow {
+  0%,
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    opacity: .6;
+  }
+  50% {
+    -webkit-transform: translateY(-2px);
+    transform: translateY(-2px);
+    opacity: 1;
+  }
+}
+@keyframes scroll-arrow {
+  0%,
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    opacity: .6;
+  }
+  50% {
+    -webkit-transform: translateY(-2px);
+    transform: translateY(-2px);
+    opacity: 1;
+  }
+}
+.somit-services{
+	background: url(../img/bg-services.png) top center no-repeat #ededed;
+}
+.h1{
+	font-family: @special-font;
+	font-size: 40px;
+	font-weight: 300;
+	text-transform: uppercase;
+	text-align: center;
+	padding: 10px 0 30px;
+	margin: 0 0 35px 0;
+	position: relative; 
+	&.text-blue{
+		color: @blue;
+	}
+	&:after{
+		content: "";
+		position: absolute;
+		bottom: 0;
+		left: 50%;
+		margin-left: -105px;
+		width: 210px;
+		height: 2px;
+		background-color: @blue;
+	}
+}
+.basic-text{
+	font-size: 20px;
+	line-height: 1.5;
+	text-align: center;
+	max-width: 770px;
+	margin-left: auto;
+	margin-right: auto;
+}

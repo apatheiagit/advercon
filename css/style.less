@@ -9,6 +9,7 @@
 @silver: #9da0a5;
 @link: #0aaf5f;
 @blue: #23559d;
+@blue-fon: #2e5283;
 @notebook: ~"(max-height: 800px)";
 @mobile: ~"(max-width: 767px)";
 @tablet: ~"(min-width: 768px) and (max-width: 992px)";
@@ -33,6 +34,7 @@ a:focus {  color: inherit; text-decoration: none;}
 	& .container{
 		position: relative;
 		height: 100%;
+		min-height: 100%;
 	}
 	& .lang-block{
 		font-size: 14px;
@@ -127,6 +129,9 @@ a:focus {  color: inherit; text-decoration: none;}
 .text-blue{
 	color: @blue;
 }
+.text-white{
+	color: white;
+}
 .h1{
 	font-family: @special-font;
 	font-size: 40px;
@@ -139,6 +144,9 @@ a:focus {  color: inherit; text-decoration: none;}
 	@media @mobile{
 		font-size: 28px;
 	}	
+	@media @smartphone{
+		font-size: 24px;
+	}
 	&:after{
 		content: "";
 		position: absolute;
@@ -155,21 +163,30 @@ a:focus {  color: inherit; text-decoration: none;}
 	font-size: 35px;
 	font-weight: 300;
 	text-transform: uppercase;
-	padding: 15px 0 15px;	
 	margin: 20px 0 20px 0;
 	position: relative; 
 	&.with-icon{
-		padding: 5px 0 10px 30px;
-		line-height: 1;
+		padding: 2px 0 10px 40px;
+	}
+	@media @mobile{
+		font-size: 25px;
+	}
+	@media @smartphone{
+		font-size: 18px;
+		max-width: 200px;
 	}
 }
 .basic-text{
 	font-size: 20px;
+	font-weight: 300;
 	line-height: 1.5;
 	text-align: center;
 	max-width: 770px;
 	margin-left: auto;
 	margin-right: auto;
+	@media @smartphone{
+		font-size: 18px;
+	}
 }
 .services-all{
 	margin-top: 80px;
@@ -198,12 +215,23 @@ a:focus {  color: inherit; text-decoration: none;}
 		width: 120px;
 		margin: 0 auto 30px;
 		transition: all .5s ease-in-out;
+		@media @mobile{
+			-webkit-background-size: contain;
+			     -o-background-size: contain;
+			        background-size: contain;
+			height: 80px;
+			width: 53px;
+			margin: 10px auto 10px;
+		}
 	}
 	& .title{
 		color: @blue;
 		font-size: 25px;
 		text-align: center;
 		transition: all .5s ease-in-out;
+		@media @mobile{
+			font-size: 20px;
+		}
 	}
 	.col-services-1 &{		
 		& .icon { background-image: url(../img/service-1.png);}
@@ -238,13 +266,13 @@ a:focus {  color: inherit; text-decoration: none;}
 		}	
 	}
 }
-.services-wrap{
+.services-wrap, .projects-all{
 	position: relative;	
 }
-.col-services{
+.col-services, .col-project{
 	position: static;	
 }
-.service-descr{
+.open-descr{
 	background-color: #FFF;
 	border-radius: 5px;
 	box-shadow: 0 0 20px 2px rgba(48,48,48,0.3);
@@ -255,6 +283,11 @@ a:focus {  color: inherit; text-decoration: none;}
 	width: 100%;	
 	z-index: 100;
 	display: none;
+	@media @tablet{
+		max-height: 600px;
+	}
+}
+.service-descr{	
 	& .h2:before{
 		content: "";
 		background-repeat: no-repeat;
@@ -310,15 +343,36 @@ a:focus {  color: inherit; text-decoration: none;}
 	  }
 	}
 }
+.open-descr-wrap{	
+	height: 100%;
+	display: none;
+	position: relative;
+}
 .service-descr-wrap{
 	background-position: right bottom;
 	background-repeat: no-repeat;
 	-webkit-background-size: contain;
 	     -o-background-size: contain;
-	        background-size: contain;
+	        background-size: contain;	
 	padding: 15px;
-	height: 100%;
-	display: none;
+	@media @tablet{
+		background-position: right -50px bottom;
+		-webkit-background-size: initial;
+	     	 -o-background-size: initial;
+	          background-size: initial;
+	}
+	@media @mobile{
+		&:before{
+			content: "";
+			background-color: #FFF;
+			opacity: 0.8;
+			height: 100%;
+			width: 100%;
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+	}
 }
 .close{
 	border: 1px solid @gray;
@@ -326,11 +380,18 @@ a:focus {  color: inherit; text-decoration: none;}
 	cursor: pointer;
 	height: 36px;
 	width: 36px;
-	position: relative;
-	float: right;
+	position: absolute;
+	top: 15px;
+	right: 15px;
+	z-index: 120;
+	&:hover{
+		border-color: darken(@gray, 20%);
+		&:before, &:after{ background-color: darken(@gray, 20%); }
+	}
 	&:before, &:after{
 		content: "";
 		background-color: @gray;
+		cursor: pointer;
 		height: 16px;
 		width: 1px;
 		position: absolute;
@@ -346,6 +407,97 @@ a:focus {  color: inherit; text-decoration: none;}
     transform: rotate(45deg);    
 	}
 }
+.somit-projects{
+	background-image: url(../img/bg-project.png);
+}
+.col-project{
+	&-1{
+		.project-block{ background-image: url(../img/bg-project-1.png);	}
+	}
+	&-2{
+		.project-block{ background-image: url(../img/bg-project-2.png);	}
+	}
+	&-3{
+		.project-block{ background-image: url(../img/bg-project-3.png);	}
+	}
+	&-4{
+		.project-block{ background-image: url(../img/bg-project-4.png);	}
+	}
+}
+.projects-all{
+	margin: 60px 0 0 0;
+}
+.project-block{
+	background-color: @blue-fon;
+	background-position: right top;
+	background-repeat: no-repeat;
+	border-radius: 5px;
+	color: white;
+	cursor: pointer;
+	padding: 60px 30px 30px;
+	margin: 0 auto 30px;
+	min-height: 240px;
+	& .title{
+		border-bottom: 2px solid white;
+		font-size: 18px;
+		font-weight: 300;
+		text-transform: uppercase;
+		max-width: 205px;
+		padding-bottom: 24px;
+		margin-bottom: 24px;
+	}
+	& .descr{
+		
+	}
+}
+.project-descr-wrap{
+	padding: 35px;
+	@media @mobile{
+		padding: 35px 15px;
+	}
+}
+.booklet-block{
+	margin-top: 20px;
+	overflow: hidden;
+	max-width: 270px;
+	& .booklet-link{
+		background-color: @blue;
+		border-radius: 0 0 10px 10px;
+		box-shadow: 0px 6px 7px 0px rgba(0,0,0,.3) inset;
+		color: white;
+		font-size: 14px;
+		padding: 16px 0;
+		display: block;
+		text-align: center;
+		text-transform: uppercase;
+		transition: all 0.5s ease-in;
+		&:hover{
+			background-color: darken(@blue, 10%);
+			text-decoration: none;
+		}
+	}
+}
+.booklet-text{
+	& p{
+		font-size: 16px;
+		margin-bottom: 20px;
+		line-height: 1.7;
+	}
+}
+.contacts{
+	background-image: url(../img/bg-contacts.png);
+	background-size: cover;
+	background-repeat: no-repeat;
+	min-height: 600px;
+}
+.footer{
+	background-image: url(../img/bg-footer.png);
+	background-size: cover;
+	background-repeat: no-repeat;
+	min-height: 280px;
+}
+
+
 @media @smartphone {
   .col-st-1,.col-st-10,.col-st-11,.col-st-12,.col-st-2,.col-st-3,.col-st-4,.col-st-5,.col-st-6,.col-st-7,.col-st-8,.col-st-9{float:left}.col-st-12{width:100%}.col-st-11{width:91.66666667%}
   .col-st-10{width:83.33333333%}.col-st-9{width:75%}.col-st-8{width:66.66666667%}.col-st-7{width:58.33333333%}.col-st-6{width:50%}.col-st-5{width:41.66666667%}.col-st-4{width:33.33333333%}

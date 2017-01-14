@@ -28,7 +28,10 @@ a:focus {  color: inherit; text-decoration: none;}
 .somit{
 	background-size: cover;
 	//min-height: @somit-height;
-	padding: 95px 0;
+	//padding: 95px 0;
+	@media @mobile_tablet{
+		padding: 45px 0;
+	}
 }
 .lang-block{
 	font-size: 14px;	
@@ -50,15 +53,21 @@ a:focus {  color: inherit; text-decoration: none;}
 		& .current{
 			color: @blue;
 		}
+		@media @notebook{
+			top: 70px;
+		}
 		@media @mobile{
-			top: -50px;
+			top: 0px;
 			left: 50%;
 			margin-left: -31px;
-		}
+		}		
 	}
 	& .logo-block{
 		text-align: center;
 		margin: 0 auto 70px;
+		@media @notebook{
+			margin: 70px auto 70px;
+		}
 	}
 	& .slogan-block{
 		text-align: center;
@@ -140,6 +149,11 @@ a:focus {  color: inherit; text-decoration: none;}
 	padding: 10px 0 30px;
 	margin: 0 0 35px 0;
 	position: relative; 
+	@media @notebook{
+		font-size: 34px;
+		padding: 10px 0 20px;
+		margin: 0 0 20px 0;
+	}
 	@media @mobile{
 		font-size: 28px;
 	}	
@@ -166,6 +180,10 @@ a:focus {  color: inherit; text-decoration: none;}
 	position: relative; 
 	&.with-icon{
 		padding: 2px 0 10px 40px;
+		@media @notebook{
+			font-size: 25px;
+			padding: 2px 0 0px 40px;
+		}
 	}
 	@media @mobile{
 		font-size: 25px;
@@ -173,7 +191,7 @@ a:focus {  color: inherit; text-decoration: none;}
 	@media @smartphone{
 		font-size: 18px;
 		max-width: 200px;
-	}
+	}	
 }
 .h3{
 	font-family: @special-font;
@@ -182,7 +200,11 @@ a:focus {  color: inherit; text-decoration: none;}
 	text-transform: uppercase;
 	padding: 10px 0 30px;
 	margin: 0 0 35px 0;
-	position: relative; 
+	position: relative;
+	@media @notebook{
+		padding: 10px 0 20px;
+		margin: 0 0 25px 0;
+	} 
 	&:after{
 		content: "";
 		position: absolute;
@@ -221,6 +243,9 @@ h4{
 .services-all{
 	margin-top: 80px;
 	margin-bottom: 60px;
+	@media @notebook{
+		margin-top: 0px;
+	}
 	@media @tablet{
 		margin-top: 30px;
 		margin-bottom: 30px;
@@ -298,6 +323,7 @@ h4{
 }
 .services-wrap, .projects-all{
 	position: relative;	
+	margin-bottom: 20px;
 }
 .col-services, .col-project{
 	position: static;	
@@ -347,9 +373,16 @@ h4{
 		border-bottom: 1px solid @blue;
 		padding-bottom: 20px;
 		margin-bottom: 30px;
+		@media @notebook{
+			padding-bottom: 10px;
+			margin-bottom: 20px;
+		}
 		& p{
 			font-size: 18px;
 			margin: 10px 0;
+			@media @notebook{
+				font-size: 16px;
+			}
 		}
 	}
 	& ul{
@@ -441,6 +474,7 @@ h4{
 	background-image: url(../img/bg-project.png);
 }
 .col-project{
+
 	&-1{
 		.project-block{ background-image: url(../img/bg-project-1.png);	}
 	}
@@ -456,6 +490,9 @@ h4{
 }
 .projects-all{
 	margin: 60px 0 0 0;
+	@media @notebook{
+		margin: 20px  0 0 0;
+	}
 }
 .project-block{
 	background-color: @blue-fon;
@@ -464,9 +501,14 @@ h4{
 	border-radius: 6px;
 	color: @white;
 	cursor: pointer;
-	padding: 60px 30px 30px;
+	padding: 60px 30px 30px 30px;
 	margin: 0 auto 30px;
 	min-height: 240px;
+	@media @notebook{
+		padding: 30px 30px 20px 30px;
+		margin: 0 auto 20px;
+		min-height: 200px;
+	}
 	& .title{
 		border-bottom: 2px solid @white;
 		font-size: 18px;
@@ -490,6 +532,9 @@ h4{
 	margin-top: 20px;
 	overflow: hidden;
 	max-width: 270px;
+	@media @notebook{
+		max-width: 210px;
+	}
 	& .booklet-link{
 		background-color: @blue;
 		border-radius: 0 0 10px 10px;
@@ -512,6 +557,10 @@ h4{
 		font-size: 16px;
 		margin-bottom: 20px;
 		line-height: 1.7;
+		@media @mobile{
+			margin-bottom: 10px;
+			line-height: 1.5;
+		}
 	}
 }
 .somit-contacts{
@@ -526,12 +575,18 @@ h4{
 	padding: 40px 0;
 	color: @white;
 	text-align:center;
+	@media @notebook{
+		min-height: 180px;
+	}
 	& .container{
 		position: relative;
 	}
 	& .lang-block{
 		top: 108px;
     left: 112px;
+    @media @notebook{
+    	top: 88px;
+    }
     @media @medium{
     	left: 12px;
     }
@@ -548,6 +603,9 @@ h4{
 	}
 	& .slogan-block{
 		margin: 40px 0;
+		@media @notebook{
+			margin: 20px 0 30px 0;
+		}
 		& h1{
 			color: @white;
 			font-size: 30px;
@@ -565,7 +623,13 @@ h4{
 	}
 }
 .contact-block{
-	margin-bottom: 70px;
+	margin-bottom: 100px;
+	@media @notebook{
+		margin-bottom: 40px;
+	}
+	@media @tablet{
+		margin-bottom: 60px;
+	}
 	@media @mobile{
 		margin: 40px auto;
 		max-width: 370px;
@@ -604,7 +668,6 @@ h4{
 		}
 	}
 }
-
 .icon-to-top {
     background: url(../img/to-top.png) no-repeat center center #ebebeb;
     bottom: 15%;
@@ -627,6 +690,22 @@ h4{
     	display: none !important;
     }
 }
+.advercon{
+	& #fp-nav{
+		& ul li a{
+			&.active span{
+				background-color: @blue;
+			}
+			& span{
+				height: 5px;
+				width: 5px;
+				background-color: @white;
+			}
+		}
+	}
+}
+
+
 @media @smartphone {
   .col-st-1,.col-st-10,.col-st-11,.col-st-12,.col-st-2,.col-st-3,.col-st-4,.col-st-5,.col-st-6,.col-st-7,.col-st-8,.col-st-9{float:left}.col-st-12{width:100%}.col-st-11{width:91.66666667%}
   .col-st-10{width:83.33333333%}.col-st-9{width:75%}.col-st-8{width:66.66666667%}.col-st-7{width:58.33333333%}.col-st-6{width:50%}.col-st-5{width:41.66666667%}.col-st-4{width:33.33333333%}

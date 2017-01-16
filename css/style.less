@@ -504,6 +504,9 @@ h4{
 	padding: 60px 30px 30px 30px;
 	margin: 0 auto 30px;
 	min-height: 240px;
+	&:hover{
+		background-color: lighten(@blue-fon, 10%);
+	}
 	@media @notebook{
 		padding: 30px 30px 20px 30px;
 		margin: 0 auto 20px;
@@ -565,19 +568,20 @@ h4{
 }
 .somit-contacts{
 	background-image: url(../img/bg-contacts.png);
-	padding-bottom: 0;
+}
+.somit-contacts-footer{
+	background-image: url(../img/bg-footer.png);	
+	background-repeat: no-repeat;
+	background-position: center bottom;
+	height: 100%;
+}
+.contacts{
+	padding: 46px 0;
 }
 .footer{
-	background-image: url(../img/bg-footer.png);
-	background-size: cover;
-	background-repeat: no-repeat;
-	min-height: 280px;
 	padding: 40px 0;
 	color: @white;
 	text-align:center;
-	@media @notebook{
-		min-height: 180px;
-	}
 	& .container{
 		position: relative;
 	}
@@ -649,6 +653,10 @@ h4{
 		padding: 6px;
 		margin: 7px 0;
 		width: 100%;
+		&:focus{
+			outline: none;
+			background-color: #f2f2f2;
+		}
 	}
 	& textarea{
 		height: 120px;
